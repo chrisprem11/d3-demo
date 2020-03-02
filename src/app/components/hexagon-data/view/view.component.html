@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 border">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of data" (click)="selectedItem(item)">{{item?.name}}</li>
+          </ul>
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div class="d3-chart polygon" #chart>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+
