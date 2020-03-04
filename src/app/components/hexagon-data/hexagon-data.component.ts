@@ -15,10 +15,5 @@ export class HexagonDataComponent implements OnInit {
   ngOnInit() {
     this.chartData = this.dataService.getGeneratedData();
   }
-
-  onTaskDrop(event: Event) {
-    console.log(event)
-  }
-
-  
+ 
 }

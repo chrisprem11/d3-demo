@@ -32,10 +32,10 @@ export class ViewComponent implements OnInit {
   
   selectedItem(item){
     this.isItemSelected = true;
-    this.showCustomView(item);
+    this.showHexagonView(item);
   }
 
-  showCustomView(item){
+  showHexagonView(item){
     console.log('showing custom hexagon view');
     const svg_dx = 800;
     const svg_dy = 400;
@@ -65,7 +65,7 @@ export class ViewComponent implements OnInit {
         .attr("points", "300,150 225,280 75,280 0,150 75,20 225,20")
         .attr("fill", "white")
         .attr("stroke", (d) => { return d.anomalies > 10 ? 'red' : 'green' })
-        .attr("stroke-width", "6")
+        .attr("stroke-width", "5")
       .call(drag_behavior)
       .transition()
       .duration((shape, i) => i * 800)
@@ -87,9 +87,13 @@ export class ViewComponent implements OnInit {
   }
 
   dragHexagonEnded(d) {
-    console.log('drag end...',d);
+    console.log('drag end...',d3.event, d3.event.x , d3.event.y);
     d3.select(this).attr("stroke", (d) => { return d.anomalies > 10 ? 'red' : 'green' }).attr("stroke-width", "6");
     d3.select(this).enter().append('button').text('HE').attr("stroke","black");
+  }
+
+  saveCoordinates(d){
+    console.log('saving coordinates... ', d);
   }
 
 }
